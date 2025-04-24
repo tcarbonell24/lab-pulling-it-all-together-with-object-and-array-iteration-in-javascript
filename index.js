@@ -196,8 +196,14 @@ function bigShoeRebounds() {
     for (let team in game) {
         const players = game[team].players;
         for (let player in players) {
-            if (player)
+            const playerStats = players[player];
+            if (playerStats.shoe > largestShoe) {
+                largestShoe = playerStats.shoe;
+                rebounds = playerStats.rebounds;
+            };
         }
     }
+
+    return rebounds;
 
 }
